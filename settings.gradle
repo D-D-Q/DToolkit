@@ -1,0 +1,13 @@
+/**
+配置子项目的文件
+*/
+
+include "singleton" // 创建单例
+
+/** 主项目名称 */
+rootProject.name = 'DToolkit'
+
+/** 指定子项目位置。默认是在项目第一层目录 */
+rootProject.children.each {project ->
+    project.projectDir = new File(settingsDir, "subprojects/${project.name}")
+}
