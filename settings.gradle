@@ -7,7 +7,12 @@ include "singleton" // 创建单例
 /** 主项目名称 */
 rootProject.name = 'DToolkit'
 
-/** 指定子项目位置。默认是在项目第一层目录 */
+/** 设置子项目属性 */
 rootProject.children.each {project ->
+	
+	/** 指定子项目位置。默认是在项目第一层目录 */
     project.projectDir = new File(settingsDir, "subprojects/${project.name}")
+    
+    /** 修改子项目build.gradle的名字 */
+    //project.buildFileName = "${project.name}.gradle"
 }

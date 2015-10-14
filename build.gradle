@@ -1,21 +1,78 @@
-subprojects {
-    apply plugin: 'java'
-    apply plugin: 'eclipse'
+/** 定义全局变量 */
+ext{
+	//key = 'value'
+}
 
+/** 依赖时'group:name:version'中的version */
+version = '1.0'
+
+/** 所有项目公有配置  */
+allprojects {
+	
+	/** 依赖时'group:name:version'中的group */
+	group = 'du'
+	
+	/** 添加plugin相当于添加了一系列task  */	
+	apply plugin: 'java'
+	apply plugin: 'eclipse' //可以生成eclipse的项目文件
+	//apply plugin: 'war' //可以打war包
+}
+
+/** 子项目公有配置  */
+subprojects {
+	
+	/** 源码版本和编译版本  */	
     sourceCompatibility = 1.8
 	targetCompatibility = 1.8
     
-    version = '1.0'
-    
+    /** 依赖库 */
     repositories {
        mavenCentral()
     }
-
+	
+	/** 依赖管理 */
     dependencies {
         testCompile 'junit:junit:4.12'
     }
+    
+    /** 创建src目录的task，创建项目时运行。新建子项目，运行task eclipse时候会运行它，准确的说是运行子项目的所有task */	
+	task createJavaProjectDirs{
+		sourceSets*.java.srcDirs*.each { it.mkdirs() }
+		sourceSets*.resources.srcDirs*.each { it.mkdirs()}
+	}
 }
 
+/** 单个项目配置，和在项目下的build.gradle一样，所以一般不在这里  */
+/*
+project(':sub_projectA'){
+	
+    dependencies {
+    
+    	// A项目依赖B项目 
+        compile project(':sub_projectB')
+    }
+}
+*/
+
+/** 生成gradle wrapper 创建项目时运行  */
 task wrapper(type: Wrapper) {
     gradleVersion = '2.7'
+}
+
+/** 解压war文件，tomcat部署此文件夹路径，不使用war。原因是因为不能刷新war中的页面文件，如果刷新war，tomcat就会重新部署，影响调试页面布局时间 */
+task buildWebAppDir(type: Copy) { 
+	 from zipTree('build/libs/Dweb-1.0.war')
+	 into 'build/libs/Dweb-1.0/'
+}
+ 
+/** task依赖 */
+buildWebAppDir.dependsOn clean
+buildWebAppDir.dependsOn assemble
+assemble.mustRunAfter clean 
+
+/** copy文件 */
+task buildView(type: Copy) { 
+	 from 'src/main/webapp/'
+	 into 'build/libs/Dweb-1.0/'
+	 exclude { details -> details.file.name.endsWith('.xml')}
 }
