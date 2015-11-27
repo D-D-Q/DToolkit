@@ -8,6 +8,8 @@ include "poi" // poi操作excle
 //#include "json"
 //#include "缓存"
 //#include "上传"
+//#include 转utf-8
+//#include useragentutils
 
 /** 主项目名称 */
 rootProject.name = 'DToolkit'
