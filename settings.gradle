@@ -5,7 +5,7 @@
 include "singleton" // 创建单例
 include "poi" // poi操作excle
 //#include "log"
-//#include "json"
+//#include "json" "jackson"
 //#include "缓存"
 //#include "上传"
 //#include 转utf-8
