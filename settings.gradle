@@ -1,7 +1,6 @@
 /**
 配置子项目的文件
 */
-
 include "singleton" // 创建单例
 include "poi" // poi操作excle
 //#include "log"
