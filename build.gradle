@@ -13,12 +13,15 @@ allprojects {
 	group = 'du'
 	
 	/** 添加plugin相当于添加了一系列task  */	
+	apply plugin: 'java'
 	apply plugin: 'eclipse' //可以生成eclipse的项目文件
 	//apply plugin: 'war' //可以打war包
 }
 
 /** 子项目公有配置  */
 subprojects {
+
+	
 	
 	/** 源码版本和编译版本  */	
     sourceCompatibility = 1.8
