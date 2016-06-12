@@ -3,12 +3,13 @@
 */
 include "singleton" // 创建单例
 include "poi" // poi操作excle
-//#include "log"
-//#include "json" "jackson"
-//#include "缓存"
-//#include "上传"
-//#include 转utf-8
-//#include useragentutils
+include "ThreadSocket"
+//include "log"
+//include "json" "jackson"
+//include "缓存"
+//include "上传"
+//include 转utf-8
+//include useragentutils
 
 /** 主项目名称 */
 rootProject.name = 'DToolkit'

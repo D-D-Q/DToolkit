@@ -21,8 +21,6 @@ allprojects {
 /** 子项目公有配置  */
 subprojects {
 
-	
-	
 	/** 源码版本和编译版本  */	
     sourceCompatibility = 1.8
 	targetCompatibility = 1.8
@@ -34,6 +32,7 @@ subprojects {
 	
 	/** 依赖管理 */
     dependencies {
+    	//compile fileTree(dir: '/WEB-INF/lib', include: '*.jar')
         testCompile 'junit:junit:4.12'
     }
     
@@ -77,4 +76,12 @@ task buildView(type: Copy) {
 	 from 'src/main/webapp/'
 	 into 'build/libs/Dweb-1.0/'
 	 exclude { details -> details.file.name.endsWith('.xml')}
+}
+
+/** 删除文件夹或文件 */
+task delete {
+	if(file("src/main/webapp/WEB-INF/lib/").exists()){
+	 	file("src/main/webapp/WEB-INF/lib/").deleteDir();
+	 	//file("src/main/webapp/WEB-INF/lib/").delete();
+	 }
 }
