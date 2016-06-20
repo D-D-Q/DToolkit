@@ -12,6 +12,7 @@ include "ThreadSocket"
 //include 转utf-8
 //include useragentutils
 include "netty"
+include "jedis"
 
 /** 主项目名称 */
 rootProject.name = 'DToolkit'
