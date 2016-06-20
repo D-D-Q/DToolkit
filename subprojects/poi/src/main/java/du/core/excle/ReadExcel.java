@@ -15,6 +15,7 @@ public class ReadExcel {
 
 	/**
 	 * 好像XSSFWorkbook取消了
+	 * 还有一个SXSSFWorkbook没看看 是xlsx格式的 支持超过65536数据大小
 	 * 
 	 * 要变成多线程 读多数据
 	 * @throws IOException
