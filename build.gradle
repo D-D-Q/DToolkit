@@ -32,7 +32,11 @@ subprojects {
 	
 	/** 依赖管理 */
     dependencies {
-        testCompile 'junit:junit:4.12'
+    	
+    	/** 依赖一个目录里的jar */
+    	//compile fileTree(dir: "/lib",include: '*.jar')
+    	
+		testCompile 'junit:junit:4.12'
     }
     
     /** 创建src目录的task，创建项目时运行。新建子项目，运行task eclipse时候会运行它，准确的说是运行子项目的所有task */	
@@ -76,3 +80,29 @@ task buildView(type: Copy) {
 	 into 'build/libs/Dweb-1.0/'
 	 exclude { details -> details.file.name.endsWith('.xml')}
 }
+
+/** 删除文件夹或文件 */
+task delete {
+	if(file("src/main/webapp/WEB-INF/lib/").exists()){
+	 	file("src/main/webapp/WEB-INF/lib/").deleteDir();
+	 	//file("src/main/webapp/WEB-INF/lib/").delete();
+	 }
+}
+
+/**
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+*/

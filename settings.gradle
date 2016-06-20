@@ -4,10 +4,14 @@
 
 include "singleton" // 创建单例
 include "poi" // poi操作excle
+include "ThreadSocket"
 //#include "log"
 //#include "json"
 //#include "缓存"
 //#include "上传"
+//include 转utf-8
+//include useragentutils
+include "netty"
 
 /** 主项目名称 */
 rootProject.name = 'DToolkit'
