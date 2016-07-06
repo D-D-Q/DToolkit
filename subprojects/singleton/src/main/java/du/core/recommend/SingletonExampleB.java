@@ -3,7 +3,7 @@ package du.core.recommend;
 /**
  * 
  * static对象会在类加载的时候就初始化 JVM会保证static的线程安全
- * jvm启动的时候 不会创建内部类中的static 所以不是恶汉式的
+ * jvm启动的时候 不会创建内部类中的static
  * 
  * @author D
  *
