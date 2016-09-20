@@ -10,7 +10,7 @@ version = '1.0'
 allprojects {
 	
 	/** 依赖时'group:name:version'中的group */
-	group = 'du'
+	group = 'd'
 	
 	/** 添加plugin相当于添加了一系列task  */	
 	apply plugin: 'java'
