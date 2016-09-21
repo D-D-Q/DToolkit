@@ -15,6 +15,9 @@ include "netty"
 include "jedis"
 include "weixin"
 
+include "d.cgunit.server" // CGUnit 使用nio连接本地服务，groovy转换类，junit执行测试
+include "d.cgunit.plug-in" // CGUnit的客户端 eclipse运行插件
+
 /** 主项目名称 */
 rootProject.name = 'DToolkit'
 

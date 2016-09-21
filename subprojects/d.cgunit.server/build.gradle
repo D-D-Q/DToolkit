@@ -1,0 +1,30 @@
+
+apply plugin: 'java'
+
+/** 编译java的字符编码 */
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+	
+    compile 'junit:junit:4.12'
+    compile 'org.codehaus.groovy:groovy-all:2.4.7'
+    
+    compile 'javax.servlet:servlet-api:2.5'
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'd.CGUnit',
+                   'Implementation-Version': 1.0
+    }
+    
+    into('lib') { // 包含jar包
+        from configurations.compile
+    }
+}
+
