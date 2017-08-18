@@ -12,8 +12,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.GenericFutureListener;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 
 public class Server {
 
@@ -53,6 +53,9 @@ public class Server {
             	 System.out.println("启动完成");
              }
              
+             
+             new ProtobufVarint32FrameDecoder();
+             new ProtobufDecoder(null);
          } finally {
              workerGroup.shutdownGracefully();
              bossGroup.shutdownGracefully();

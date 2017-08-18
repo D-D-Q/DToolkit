@@ -37,6 +37,12 @@ subprojects {
     	//compile fileTree(dir: "/lib",include: '*.jar')
     	
 		testCompile 'junit:junit:4.12'
+		
+		/** 移出一个jar包的依赖，依赖有冲突时候是用
+		compile (‘group:name:version’){
+			exclude module: ‘name’
+		}
+		*/
     }
     
     /** 创建src目录的task，创建项目时运行。新建子项目，运行task eclipse时候会运行它，准确的说是运行子项目的所有task */	
