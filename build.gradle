@@ -18,6 +18,10 @@ allprojects {
 	//apply plugin: 'war' //可以打war包
 }
 
+tasks.withType(JavaCompile) {
+	options.encoding = "UTF-8"
+}
+
 /** 子项目公有配置  */
 subprojects {
 	
