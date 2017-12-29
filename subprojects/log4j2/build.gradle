@@ -1,0 +1,17 @@
+
+/** 依赖管理 */
+dependencies {
+
+	// log4j2核心包
+	compile "org.apache.logging.log4j:log4j-core:2.10.0"
+	compile "org.apache.logging.log4j:log4j-api:2.10.0"
+	
+	// All Loggers Asynchronous使用的是disruptor
+	compile "com.lmax:disruptor:3.3.7"
+	
+	// 和slf4j桥接包
+	compile "org.apache.logging.log4j:log4j-slf4j-impl:2.10.0"
+	
+	// 在程序中使用slf4j的日志接口
+	compile "org.slf4j:slf4j-api:1.8.0-alpha2"
+}

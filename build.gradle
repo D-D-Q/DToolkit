@@ -33,6 +33,10 @@ subprojects {
     repositories {
        mavenCentral()
     }
+    
+    tasks.withType(JavaCompile) {
+		options.encoding = "UTF-8"
+	}
 	
 	/** 依赖管理 */
     dependencies {
@@ -71,32 +75,6 @@ project(':sub_projectA'){
 /** 生成gradle wrapper 创建项目时运行  */
 task wrapper(type: Wrapper) {
     gradleVersion = '2.7'
-}
-
-/** 解压war文件，tomcat部署此文件夹路径，不使用war。原因是因为不能刷新war中的页面文件，如果刷新war，tomcat就会重新部署，影响调试页面布局时间 */
-task buildWebAppDir(type: Copy) { 
-	 from zipTree('build/libs/Dweb-1.0.war')
-	 into 'build/libs/Dweb-1.0/'
-}
- 
-/** task依赖 */
-buildWebAppDir.dependsOn clean
-buildWebAppDir.dependsOn assemble
-assemble.mustRunAfter clean 
-
-/** copy文件 */
-task buildView(type: Copy) { 
-	 from 'src/main/webapp/'
-	 into 'build/libs/Dweb-1.0/'
-	 exclude { details -> details.file.name.endsWith('.xml')}
-}
-
-/** 删除文件夹或文件 */
-task delete {
-	if(file("src/main/webapp/WEB-INF/lib/").exists()){
-	 	file("src/main/webapp/WEB-INF/lib/").deleteDir();
-	 	//file("src/main/webapp/WEB-INF/lib/").delete();
-	 }
 }
 
 /**
