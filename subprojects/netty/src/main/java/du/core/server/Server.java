@@ -13,7 +13,9 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
+import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 
 public class Server {
 
@@ -54,8 +56,10 @@ public class Server {
              }
              
              
+             new ProtobufVarint32LengthFieldPrepender();
              new ProtobufVarint32FrameDecoder();
              new ProtobufDecoder(null);
+             new ProtobufEncoder();
          } finally {
              workerGroup.shutdownGracefully();
              bossGroup.shutdownGracefully();

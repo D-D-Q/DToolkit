@@ -1,0 +1,19 @@
+syntax = "proto3"; // 使用proto3
+import "google/protobuf/any.proto"; // 类似Object类型
+
+message Msg {
+	
+	int32 no = 1; // 协议号
+	
+	repeated sint32 intList = 2
+	repeated string stringList = 3
+	repeated google.protobuf.Any ObjectList = 4
+	
+	map<sint32, sint32> intIntMap = 5;
+	map<sint32, string> intStringMap = 6;
+	map<sint32, google.protobuf.Any> intObjectMap = 7;
+	
+	map<string, sint32> stringIntMap = 8;
+	map<string, string> stringStringMap = 9;
+	map<string, google.protobuf.Any> stringObjectMap = 10;
+}

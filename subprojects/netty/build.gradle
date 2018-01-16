@@ -8,6 +8,7 @@ dependencies {
 	//compile "com.google.protobuf:protobuf-lite:3.0.1" // 核心的精简版 移动端是用的
 	
 	
-	compile "io.protostuff:protostuff-core:1.5.0" //When you generate schemas for your classes
-	compile "io.protostuff:protostuff-runtime:1.5.0" // Runtime schemas
+	compile "io.protostuff:protostuff-core:1.5.0"
+	compile "io.protostuff:protostuff-runtime:1.5.0"
+	
 }
