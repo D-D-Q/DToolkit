@@ -1,0 +1,18 @@
+syntax = "proto3"; // 使用proto3
+
+option java_package = "du.proto";  
+option java_outer_classname = "TestProto"; // proto编译时 类名默认是文件名
+
+// protostuff编译时message名就是类名
+// 这里是注释
+message Msg {
+	
+	repeated sint32 intList = 2;
+	repeated string stringList = 3;
+	
+	map<sint32, sint32> intIntMap = 4;
+	map<sint32, string> intStringMap = 5;
+	
+	map<string, sint32> stringIntMap = 6;
+	map<string, string> stringStringMap = 7;
+}

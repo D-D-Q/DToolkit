@@ -1,13 +1,14 @@
 syntax = "proto3"; // 使用proto3
 import "google/protobuf/any.proto"; // 类似Object类型
 
+// 暂时用不到Any
 message Msg {
 	
 	int32 no = 1; // 协议号
 	
-	repeated sint32 intList = 2
-	repeated string stringList = 3
-	repeated google.protobuf.Any ObjectList = 4
+	repeated sint32 intList = 2;
+	repeated string stringList = 3;
+	repeated google.protobuf.Any ObjectList = 4;
 	
 	map<sint32, sint32> intIntMap = 5;
 	map<sint32, string> intStringMap = 6;
