@@ -2,6 +2,8 @@ package du.core.handler;
 
 import java.io.IOException;
 
+import org.junit.Test;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.UnpooledByteBufAllocator;
 import io.netty.handler.codec.CorruptedFrameException;
@@ -148,4 +150,5 @@ public class Varint32Test {
             return result;
         }
     }
+    
 }
