@@ -9,7 +9,6 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
-import org.junit.Test;
 
 public class ReadExcel {
 
@@ -20,7 +19,6 @@ public class ReadExcel {
 	 * 要变成多线程 读多数据
 	 * @throws IOException
 	 */
-	@Test
 	public void read_97_2003() throws IOException {
 		
 		FileInputStream fileInputStream = new FileInputStream("C:\\Users\\Administrator\\Desktop\\7月三国杀发码.xls");

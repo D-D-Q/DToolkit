@@ -1,0 +1,6 @@
+message Msg{
+	required int32 id = 1;
+	required string user = 2;
+	required string password = 3;
+	required int64 time = 4;
+}

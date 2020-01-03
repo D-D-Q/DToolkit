@@ -22,8 +22,8 @@ allprojects {
 subprojects {
 	
 	/** 源码版本和编译版本  */	
-    sourceCompatibility = 1.8
-	targetCompatibility = 1.8
+    sourceCompatibility = 11
+	targetCompatibility = 11
     
     /** 依赖库 */
     repositories {
@@ -36,13 +36,15 @@ subprojects {
     	/** 依赖一个目录里的jar */
     	//compile fileTree(dir: "/lib",include: '*.jar')
     	
-		testCompile 'junit:junit:4.12'
+		testImplementation 'org.junit.jupiter:junit-jupiter:5.5.2'
     }
     
     /** 创建src目录的task，创建项目时运行。新建子项目，运行task eclipse时候会运行它，准确的说是运行子项目的所有task */	
 	task createJavaProjectDirs{
 		sourceSets*.java.srcDirs*.each { it.mkdirs() }
 		sourceSets*.resources.srcDirs*.each { it.mkdirs()}
+		
+		new File(project.projectDir, project.buildFile.name).createNewFile()
 	}
 }
 
@@ -59,8 +61,8 @@ project(':sub_projectA'){
 */
 
 /** 生成gradle wrapper 创建项目时运行  */
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.7'
+wrapper {
+    gradleVersion = '6.0.1'
 }
 
 /** 解压war文件，tomcat部署此文件夹路径，不使用war。原因是因为不能刷新war中的页面文件，如果刷新war，tomcat就会重新部署，影响调试页面布局时间 */

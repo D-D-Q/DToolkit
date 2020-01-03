@@ -1,6 +1,5 @@
 package du.core.server.handler;
 
-import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
@@ -12,7 +11,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 		System.out.println("---msg");
 		// 默默地丢弃收到的数据
 //        ((ByteBuf) msg).release();
-		System.out.println(((ByteBuf) msg).toString(io.netty.util.CharsetUtil.US_ASCII));
+		System.out.println(msg);
         
     }
 

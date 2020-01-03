@@ -1,0 +1,6 @@
+dependencies {
+    compile 'com.whalin:Memcached-Java-Client:3.0.2',
+    		'com.esotericsoftware:kryo:3.0.3'
+}
+// 另一个java客户端
+//'com.googlecode.xmemcached:xmemcached:2.0.0'  

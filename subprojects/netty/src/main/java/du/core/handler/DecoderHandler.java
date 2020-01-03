@@ -13,8 +13,10 @@ public class DecoderHandler extends ByteToMessageDecoder {
 
 		System.out.println("---decode");
 		
+		if(in.readableBytes() < 4)
+			return;
 		
-		out.add(in);
+		out.add(in.readInt());
 	}
 
 }

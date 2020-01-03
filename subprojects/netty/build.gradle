@@ -1,5 +1,6 @@
 
 /** 依赖管理 */
 dependencies {
-	compile "io.netty:netty-all:4.1.0.Final"
+	compile "io.netty:netty-all:4.1.0.Final",
+			"com.google.protobuf:protobuf-java:2.6.1"
 }

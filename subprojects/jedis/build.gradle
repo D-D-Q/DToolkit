@@ -1,4 +1,0 @@
-dependencies {
-    compile 'redis.clients:jedis:2.8.1',
-    		'com.esotericsoftware:kryo:3.0.3'
-}

@@ -12,8 +12,6 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.GenericFutureListener;
 
 public class Server {
 
@@ -29,7 +27,7 @@ public class Server {
               .childHandler(new ChannelInitializer<SocketChannel>() {
                   @Override
                   public void initChannel(SocketChannel ch) throws Exception {
-                	  
+                	  System.out.println("handler---------");
                 	  // 添加handler处理链
                 	  ch.pipeline().addLast(new DecoderHandler());
                 	  

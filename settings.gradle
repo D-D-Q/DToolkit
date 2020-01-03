@@ -12,7 +12,11 @@ include "ThreadSocket"
 //include 转utf-8
 //include useragentutils
 include "netty"
-include "jedis"
+include "redis"
+include "memcache"
+include "algorithms"
+include "jarFileDownload"
+include "protobuf"
 
 /** 主项目名称 */
 rootProject.name = 'DToolkit'
@@ -23,6 +27,7 @@ rootProject.children.each {project ->
 	/** 指定子项目位置。默认是在项目第一层目录 */
     project.projectDir = new File(settingsDir, "subprojects/${project.name}")
     
+    
     /** 修改子项目build.gradle的名字 */
-    //project.buildFileName = "${project.name}.gradle"
+    //project.buildFile.name = "${project.name}.gradle"
 }
