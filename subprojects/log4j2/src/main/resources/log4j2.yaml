@@ -1,0 +1,63 @@
+# 日志配置文件
+# All < Trace < Debug < Info < Warn < Error < Fatal < OFF.
+
+Configuration:
+  
+  status: warn # log4j内部事件日志级别
+  monitorInterval: 30 # 监测配置文件改动 单位秒 最小是5秒
+  name: YAMLConfig # 配置文件名字
+  
+  properties: # 定义变量
+    property:
+      name: logPath
+      value: target/rolling
+      
+  Loggers:
+  
+    Root: # 根日志
+      level: all
+      AppenderRef: # 输出配置
+        ref: STDOUT
+        
+    logger: # 自定义日志
+      -
+        name: test1
+        level: info
+        additivity: true # 是否继承root 如果继承也输出到root配置的位置
+        AppenderRef:
+          ref: RollingFileName
+      -
+        name: test2
+        level: debug
+        additivity: true
+        AppenderRef:
+          ref: STDOUT
+        
+  thresholdFilter: # 整个配置文件的处理日志级别过滤 优先级最高 平时可以不用配置
+    level: all
+    
+  appenders:
+  
+    Console: # 定义控制台输出
+      name: STDOUT
+      target: SYSTEM_OUT # 控制台的输出流默认值 默认值就是SYSTEM_OUT
+      PatternLayout:
+        Pattern: "%m%n"
+      Filters: # 过滤器
+        ThresholdFilter: # 按日志级别过滤
+          level: all
+           
+    RollingFile: # 定义一个滚动文件方式输出日志
+      name: RollingFileName
+      fileName: ${logPath}/log.log # 使用变量 相对路径是相对项目跟目录
+      filePattern: ${logPath}/%d{yyyy-MM-dd-HH-mm-ss}-%i.log.gz # gz会自动压缩
+      PatternLayout: # 自定义日志输出格式
+        Pattern: "%d %p %C{1.} [%t] %m%n"
+      policies: # 多个滚动策略 
+        SizeBasedTriggeringPolicy: # 设置基于文件大小滚动
+          size: 100MB # 单个文件最大大小
+        TimeBasedTriggeringPolicy: # 设置滚动策略 基于时间的滚动
+          interval: 1 # 滚动间隔时间 单位小时 默认1
+          modulate: true # 自动调整时间 会自动调整成interval的倍数时间 比如现在是早上3am，interval是4，那么第一次滚动是在4am，接着是8am，12am...而不是7am.
+      DefaultRolloverStrategy: # 设置一个文件夹下的日志删除策略 删除旧日志文件
+        max: 5 # 文件夹下日志文件超过max时候 创建新日志文件 会删除旧日志文件

@@ -1,0 +1,22 @@
+
+/** 依赖管理 */
+dependencies {
+
+	// log4j2核心包
+	compile "org.apache.logging.log4j:log4j-core:2.10.0"
+	compile "org.apache.logging.log4j:log4j-api:2.10.0"
+	
+	// log4j2异步log使用的是disruptor
+	compile "com.lmax:disruptor:3.3.7"
+	
+	// log4j使用yaml配置文件需要的包
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.3'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.3'
+	compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.9.3'
+	
+	// 和slf4j桥接包
+	compile "org.apache.logging.log4j:log4j-slf4j-impl:2.10.0"
+	
+	// 在程序中使用slf4j的日志接口
+	compile "org.slf4j:slf4j-api:1.8.0-alpha2"
+}

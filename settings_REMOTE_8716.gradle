@@ -1,0 +1,33 @@
+/**
+配置子项目的文件
+*/
+
+include "singleton" // 创建单例
+include "poi" // poi操作excle
+include "ThreadSocket"
+//#include "log"
+//#include "json"
+//#include "缓存"
+//#include "上传"
+//include 转utf-8
+//include useragentutils
+include "netty"
+include "jedis"
+include "weixin"
+include "log4j2"
+
+//include "d.cgunit.server" // CGUnit 使用nio连接本地服务，groovy转换类，junit执行测试
+//include "d.cgunit.plug-in" // CGUnit的客户端 eclipse运行插件
+
+/** 主项目名称 */
+rootProject.name = 'DToolkit'
+
+/** 设置子项目属性 */
+rootProject.children.each {project ->
+	
+	/** 指定子项目位置。默认是在项目第一层目录 */
+    project.projectDir = new File(settingsDir, "subprojects/${project.name}")
+    
+    /** 修改子项目build.gradle的名字 */
+    //project.buildFileName = "${project.name}.gradle"
+}

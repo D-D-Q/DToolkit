@@ -11,12 +11,11 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
 public class Client {
-
+	
 	public void run() {
 		 
+		EventLoopGroup workerGroup = new NioEventLoopGroup(8);
 		int port = 888;
-
-		EventLoopGroup workerGroup = new NioEventLoopGroup(1);
 
 		try {
 			Bootstrap b = new Bootstrap(); 
@@ -37,8 +36,6 @@ public class Client {
 
 			// 等待连接关闭
 			f.channel().closeFuture().sync();
-			
-			
 			
 		} catch (InterruptedException e) {
 			e.printStackTrace();

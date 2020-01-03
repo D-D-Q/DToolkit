@@ -1,0 +1,10 @@
+dependencies {
+    compile 'org.freemarker:freemarker:2.3.23',
+    		'org.apache.httpcomponents:httpclient:4.5.2',
+    		'log4j:log4j:1.2.17',
+    		'com.fasterxml.jackson.core:jackson-databind:2.7.5',
+    		'dom4j:dom4j:1.6.1'
+    		
+	compile 'javax.servlet:javax.servlet-api:3.1.0'
+    		
+}

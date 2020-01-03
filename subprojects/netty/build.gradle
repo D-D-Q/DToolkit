@@ -1,6 +1,37 @@
 
+configurations {
+    protoCompile
+}
+
 /** 依赖管理 */
 dependencies {
-	compile "io.netty:netty-all:4.1.0.Final",
-			"com.google.protobuf:protobuf-java:2.6.1"
+	compile "io.netty:netty-all:4.1.0.Final"
+	
+	compile "com.google.protobuf:protobuf-java:3.5.1" // protobuf核心
+	compile "com.google.protobuf:protobuf-java-util:3.5.1" // protobuf工具
+	//compile "com.google.protobuf:protobuf-lite:3.0.1" // 核心的精简版 移动端是用的
+	
+	
+	//compile "io.protostuff:protostuff-core:1.6.0"
+	//compile "io.protostuff:protostuff-runtime:1.6.0"
+	
+	//protoCompile "io.protostuff:protostuff-cli:2.2.18" // 编译proto的命令行工具
+	
 }
+
+/** 废弃 不支持proto3*/
+/** 使用protostuff编译proto 
+task generateSource() {
+	println project.projectDir.path
+	println project.buildDir.path
+    ant.java(classname: 'io.protostuff.compiler.cli.ProtostuffCompilerCli', fork: 'true', failOnError: 'true') {
+        arg(value: 'test.proto')
+        arg(value: '-g=java')
+        arg(value: '-I=' + project.projectDir.path + "/src/main/resources/proto/")
+        arg(value: '-o=' + project.buildDir.path + "/generated/")
+        classpath {
+            pathElement(path: configurations.protoCompile.asPath)
+        }
+    }
+}
+*/
