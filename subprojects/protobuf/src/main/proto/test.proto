@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message SearchRequest {
+  int32 query = 1;
+}
