@@ -16,11 +16,12 @@ include "jedis"
 include "weixin"
 include "log4j2"
 include "redis"
-include "memcache"
+//include "memcache"
 include "algorithms"
 include "jarFileDownload"
 include "protobuf" // gradle编译proto文件
-include "vertx"
+//include "vertx"
+include "cas"
 
 //include "d.cgunit.server" // CGUnit 使用nio连接本地服务，groovy转换类，junit执行测试
 //include "d.cgunit.plug-in" // CGUnit的客户端 eclipse运行插件
