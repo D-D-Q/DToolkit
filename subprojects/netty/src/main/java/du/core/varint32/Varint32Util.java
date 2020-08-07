@@ -5,6 +5,14 @@ import java.io.IOException;
 import io.netty.buffer.ByteBuf;
 import io.netty.handler.codec.CorruptedFrameException;
 
+/**
+ * @author D
+ * 
+ * 使用varint32对ByteBuf解码和编码
+ *
+ * {@link io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder}
+ * {@link io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender}
+ */
 public class Varint32Util {
 	
 	/**
