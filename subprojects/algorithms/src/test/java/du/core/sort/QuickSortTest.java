@@ -16,7 +16,7 @@ public class QuickSortTest {
 		
 		QuickSort quickSort = new QuickSort();
 		
-		int[] A = {9, 6, 8, 1, 3, 7, 3};
+		int[] A = {9, 6, 8, 1, 3, 7, 3, 10};
 		
 		System.out.println(Arrays.toString(A));
 		
@@ -24,4 +24,7 @@ public class QuickSortTest {
 		
 		System.out.println(Arrays.toString(A));
 	}
+	
+	
+
 }

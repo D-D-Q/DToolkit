@@ -23,6 +23,8 @@ package du.core.sort;
 public class QuickSort {
 
 	/**
+	 * 递归方式
+	 * 
 	 * @param A 无序数组
 	 */
 	public void quickSort(int[] A){
@@ -41,7 +43,7 @@ public class QuickSort {
 		while(i < j){
 			
 			while(i < j){
-				if(A[j] < key){
+				if(A[j] <= key){
 					A[i++] = A[j];
 					break;
 				}
@@ -55,11 +57,9 @@ public class QuickSort {
 				}
 				++i;
 			}
-			
 			A[i] = key; 
-			
-			quickSortSub(A, start, i-1);
-			quickSortSub(A, i+1, end);
 		}
+		quickSortSub(A, start, i-1);
+		quickSortSub(A, i+1, end);
 	}
 }
